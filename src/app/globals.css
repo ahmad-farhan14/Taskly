@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f7f2;
+  --foreground: #20231e;
+  --muted: #888b83;
+  --green: #56744f;
+  --green-dark: #3d5a39;
+  --line: #e8e9e1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #dce8d7;
+  color: #263822;
+}
+
+.soft-scrollbar {
+  scrollbar-color: #d7d9d0 transparent;
+  scrollbar-width: thin;
+}
+
+.soft-scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.soft-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #d7d9d0;
+}
+
+.current-time-line {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: #de6d60;
+  pointer-events: none;
+}
+
+.current-time-line::before {
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #de6d60;
+  content: "";
+  transform: translateY(-50%);
 }
